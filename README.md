@@ -28,3 +28,8 @@ Quantit. (usually measure) create axis which show range of values. Qualit. creat
 # Aggregration = how data is combined
 # Join
 -join max 32 tables
+# Action/ Web Page Object
+-A dashboard can have multiple Web page objects.
+-To interactively display info from the web inside a dashboard, you can use a URL action with a web page object
+# Color
+- Can separate color legends be displayed for multiple measure in a viz: Add measure values to color legend and select use separate legends option 
