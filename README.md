@@ -42,17 +42,22 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 # Path/File (Packaged workbooks have no data security so data can be seen w/o encryption)
 - Default path for supporting files, data source, icon, log: Documents/My Tableau Repository
 - 4 tableau file types - tds, tde, twb, twbx
-- TDS  contains  the  info to  connect to the  original data source and does NOT contain the actual data. It can contain groups, calculated fields
-- TWB contains worksheets and dashboards and info necessary to connect to data source and info needed to build the view, but NOT the actual data. A link is rather established to the data source. The next time we open the TWB file, the views will automatically update wrt. to the changes in the underlying data source
-- TWBX is all  in 1.  It contains  viz,  info  needed  to  build the  viz, and a copy ofthe  data source. It doesn’t contain extracts of the data but can contain both live and data extracts. Best if want to eliminate the barrier of data access
-- TDE is a snapshot of the data that Tableau stores locally. Good for very large datasets of which we only need few fields. Performance is optimised because it queries  its  own database engine instead of the local data source.
-# Data source/ Tableau Reader/ Publish/ Export
+- TDS  contains  the  info to  connect to the  original data source and does NOT contain the actual data. It can contain modifications you've made on top of the actual data. TDS file contains: calculated fields, Data source type, Default field properties, Connection info, Groups and sets
+- TWB contains >=1 worksheets and >=0 dashboards & stories and info necessary to connect to data source and info needed to build the view, but NOT the actual data. A link is rather established to the data source. The next time we open the TWB file, the views will automatically update wrt. to the changes in the underlying data source
+- TWBX is all  in 1.  Single zip file contains workbook, viz,  info needed to  build the  viz, and a copy of the data source. It doesn’t contain extracts of the data but can contain both live and data extracts. Best if want to eliminate the barrier of data access/sharing your work with ppl who don’t have access to the original data.
+- TDE is a snapshot of the data that Tableau stores locally (local copy of a subset or entire data set that you can use to share data with ppl/ need to work offline). Good for very large datasets of which we only need few fields. Performance is optimised because it queries  its  own database engine instead of the local data source. 
+- .hyper: Create larger extracts with billions of rows of data. Because .hyper extracts can support more data, you can consolidate .tde extracts into a single .hyper extract. Create and refresh extracts faster, version 2020.3 supports faster extract creation and refreshes for even larger data sets. Experience better performance when interacting with views that use extract data sources: Although smaller extracts continue to perform efficiently, larger extracts perform more efficiently.
+# Data source/ Tableau Reader/ Publish
 - can add filter in Data Source window to filter data (Data Source filter)
 - can  either  embed  data  source  in  the workbook for others to use, or publish it separately. Include external files means that there are things like custom geo encoding that the server wont have access to and would want to include those.
 - save new data source as .tds :go to data menu on top. choose current connected data source. Then click on Add to Saved Data sources. This will save all calculated fields, changes to fields ... It  will  be  saved  in  My  Tableau  Repository  ->  Mydatasources and also appear on Tableau Home Page under saved data sources like SampleSuperStore.
 - can publish viz to tableau online (hosted by Tableau) or server (hosted by our organisation). Tableau public is free, good for making public viz that contain non sensitive data. Before we can publish on Tableau online, we need to be invited by admin and create username and password. The URL for tableau online is http://online.tableau.com
 - Tableau reader is free  and less powerful version of Desktop with limited viewing capabilities.  Doesn’t have full editing features  -  can  sort etc only basic things.  Can open .twbx files and view the vizzes.
+
+# Export
 - Data can be exported to an MS Access DB (Data is the option name ) or Excel.
+- Export dashboard as image: copy just 1 of the worksheets not the entire dashboard (Right click on the dashboard, choose Copy, then image OR Click on Worksheet in the Menu bar followed by Export, then choose Image)
+- NOT exsist: Using the floating export worksheet option on the Dashboard
 
 # Cube data source
 - Cube data source can only be used as primary in a blend and supported only for Tableau Desktop on windows
@@ -60,11 +65,12 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 # Metadata (Ex: Which fields are hidden, Default aggregation etc)
 - Use metadata to create custom names for cols
 
-# Size
+# Size/Layout
 - Dashboard size options: Fixed (default), Range, Automatic
+- Valid layout container types: Vertical and Horizontal
 # Granularity = lvl of detail (LOD)
 - Determine LOD: select a mark, right click to view underlying data
-# Aggregration = how data is combined
+# Aggregration = how data is combined, NOT table calc
 - By default, aggregation is done on row-lvl detail
 # Blend/Union
 - Blending (done per sheet basis). allows combine data from different data sources (primary data src is blue, secondary is orange)
@@ -73,10 +79,11 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 # Join/ Relationship
 - join max 32 tables
 - 1-to-many relationship is represented by a *
-# Group
+# Group/Set
 - group  dim or measur: In Data pane menu, click  group  by  folder. Then right click and create group. Drag-drop relevant dim or measures into the group.
 - group data: 3 ways - marks  and  labels(visually) and  dimensions shelf.  When  we visually group data, if we select data points directly and group - they will be grouped via colour on the chart (they remain separate marks) and a new dim is also created but not moved into columns tab. But if we select their labels and then click on group - a new dim is created  and  the group is shown on chart as a single mark by aggregating value of all group members
 - To remove member from group: In the Data pane, right-click the group and select Edit Group
+- To compare members, it is better to use combined set
 
 # Action/ Web Page Object
 - 3  types  of  dashboard  actions - select, hover and menu. Hover is best for highlighting, select for filtering. Menu action is added to the tooltip and user can decide whether to run that action or not (best for URL actions)
@@ -95,6 +102,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - In filter range of values, upper bound is excluded
 - Order of filters: Extract filter, data source filter, context filter, Filter on dimension, Filter on measures
 - To create context filter: Click "More Options" arrow on the worksheet included in the dashboard layout, then	select "use as Filters" and select the filter that you'd like to apply to the whole	dashboard. Then go to the filter menu, right click, and select "apply to all using this data source"
+- CONTEXT filter usage: set a context filter to include only the data of interest, THEN set a (dependent) numerical or a top N filter. CONTEXT filter will mprove performance (If you set a lot of filters or have a large data source, the queries can be slow)
 
 # Calculation/ Parameters = [PURPLE] (variables which can be added)
 - Quick table calc can be pane down/across or table down/across
@@ -109,7 +117,8 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - Pie chart should be <= 5 dim. if not, use treemap (note: these dont have axis)
 - Tree chart can be changed to a text cloud or bubble chart by just changing the shape of marks
 - Histogram shows the distribution of continuous data by creating bins that are discrete (bin can be created on a continuous measu or numeric dim). Histogram must include a bin and a count
-- A line chart requires a date field
+- A line chart requires a date field. Reference line can only be added to a continuous axis IN THE VIEW
+- Bar chart: if we group labels in a view, a new mark (bar) is created, which consolidates all members of the group. A bar chart can be used a floating item. To create a stacked bar chart from existing bar chart, drag another dimension into Color mark
 # Color (max 7 in visualization/ view) and Font
 - Can separate color legends be displayed for multiple measure in a viz: Add measure values to color legend and select use separate legends option
 - To format font color: Right-click on the view, select "Format" and select the dropdown next to tooltip. Then select the color. OR Click on the tooltip button in the Marks area, highlight the text, and select desired color using the dropdown
@@ -121,7 +130,14 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - format axis bold: Right click on axis, choose format, and then set to bold
 - bold tooltip: Right click format, and then under default worksheet formatting, choose tooltip and make it bold OR Click on tooltip in the marks card, and then make it bold OR Click on worksheet in menu bar, then tooltip, and then select bold option
 - italicize tooltip: Click on tooltip, select text, and use italics option OR Click Format from Menu bar, choose Font, and then edit tooltip option OR Click on worksheet in Menu, select tooltip, then use italic option
-- make rows or columns bold without affecting othersChoose format from Menu bar, select row or column, and select Bold under header optionRight click row or column, choose format. In font option click on bol
-- 
+- make row or col bold w/o affecting others: Choose format from Menu bar, select row or column, and select Bold under header option OR Right click row or column, choose format. In font option click on bold
+
+# Animate visualizations in workbook
+- Choose Format > Animations. To animate every sheet, under Workbook Default, click On. Then for Duration, choose a preset, or specify a custom duration of up to 10 seconds. For Style, choose Simultaneous to play all animations at once or Sequential to fade out marks, move and sort them, and then fade them in. 
+- To override workbook defaults for a particular sheet, change the settings under Selected Sheet.
+
+# Wildcard search (*)
+- use Wildcard Search to set up search criteria to automatically include tables in your union. Use the wildcard character, which is an asterisk (*), to match a sequence or pattern of characters in the Excel workbook and worksheet names, Google Sheets workbook and worksheet names, text file names, JSON file names, .pdf file names, and database table names. When working with Excel, text file data, JSON file, .pdf file data, you can also use this method to union files across folders, and worksheets across workbooks.
+- Search is scoped to the selectedconnection. The connection and the tables available in a connection are shown on the left pane of the Data source page
 # Map
 - Can edit the map background etc using Map Layers
