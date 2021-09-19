@@ -10,6 +10,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - Geo region type is also String
 # Dim and Measure (auto generate 1 dim (Measur. names) and 4 measu (Lat, Long, num of records, Measu. values)
 - Dim: break down aggregated total into smaller totals by category. Adding a dim to the marks area will increase granularity of the view
+- Dim: can contain qualitative values and affect lvl of detail (granularity). For relational data sources, date and time are auto placed in dimensions area of data pane
 - Dim only create header. Measure create header+axis
 - Can  drop  1 dimension  on  another dim to  replace it and drop 1 measure on another to replace it. The opposite is not true.
 - Countd will make a string into a measure
@@ -58,6 +59,9 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - For cube data sources, you canNOT use parameter values to filter dimensions in an MDX calculation.
 # Metadata (Ex: Which fields are hidden, Default aggregation etc)
 - Use metadata to create custom names for cols
+
+# Size
+- Dashboard size options: Fixed (default), Range, Automatic
 # Granularity = lvl of detail (LOD)
 - Determine LOD: select a mark, right click to view underlying data
 # Aggregration = how data is combined
@@ -90,9 +94,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 # Filter (Slider filter works best with date field)
 - In filter range of values, upper bound is excluded
 - Order of filters: Extract filter, data source filter, context filter, Filter on dimension, Filter on measures
-
 - To create context filter: Click "More Options" arrow on the worksheet included in the dashboard layout, then	select "use as Filters" and select the filter that you'd like to apply to the whole	dashboard. Then go to the filter menu, right click, and select "apply to all using this data source"
-
 
 # Calculation/ Parameters = [PURPLE] (variables which can be added)
 - Quick table calc can be pane down/across or table down/across
@@ -113,7 +115,13 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - To format font color: Right-click on the view, select "Format" and select the dropdown next to tooltip. Then select the color. OR Click on the tooltip button in the Marks area, highlight the text, and select desired color using the dropdown
 - When format the font at worksheet lvl, all fonts will be changed except for the ones in tooltip
 - Orange-Blue  diverging  palette  is  an  excellent  choice  for  both  colour  blind  and  sound-vision people.
+- When there are both + and – values for a field, the default range of values will use 2 color ranges. This is Diverging Palette
 - Field Names = [ORANGE], Parameters = [PURPLE]
-
+# How to...
+- format axis bold: Right click on axis, choose format, and then set to bold
+- bold tooltip: Right click format, and then under default worksheet formatting, choose tooltip and make it bold OR Click on tooltip in the marks card, and then make it bold OR Click on worksheet in menu bar, then tooltip, and then select bold option
+- italicize tooltip: Click on tooltip, select text, and use italics option OR Click Format from Menu bar, choose Font, and then edit tooltip option OR Click on worksheet in Menu, select tooltip, then use italic option
+- make rows or columns bold without affecting othersChoose format from Menu bar, select row or column, and select Bold under header optionRight click row or column, choose format. In font option click on bol
+- 
 # Map
 - Can edit the map background etc using Map Layers
