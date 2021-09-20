@@ -3,11 +3,13 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 # Field Field Names = [ORANGE]
 - Field, or col, is a single piece of info from a record in a data set
 - If  titles  of  fields /col names changed  in  the  source  data,  we  need  to replace the references as Tableau won’t understand these changes. To fix this, right click on the broken field and click on replace references and tell Tableau which is the new field name.
+- Remote field name is the original name of the column, field name is the custom name created in tableau
 - To concatenate fields, they must be of same data type
 
 # Role and Type
 - Data fields are automatically assigned a role (Dim/ independent var or Measure/ dependent var) and a type (string, number, geo, date, date & time, boolean)
 - Geo region type is also String
+- To manually assign geo role: Right click the DIMENSION -> geo role -> assign
 # Dim and Measure (auto generate 1 dim (Measur. names) and 4 measu (Lat, Long, num of records, Measu. values)
 - Dim: break down aggregated total into smaller totals by category. Adding a dim to the marks area will increase granularity of the view
 - When you increase number of dimensions, number of marks in the visualization will increase
@@ -27,6 +29,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - Qualitative: slice quantit., describe or categorize, tell what/when/where, cant perform calc like sum, avg, mean
 - Quantitative: provide measurement for qualit., numerical, can perform calc.
 - Quantit. (usually measure) create axis which show range of values. Qualit. create axis with headers that have labels for categorical data
+- You get different filtering options when filtering for categorical and quantitative data
 
 # Default properties
 - Comment,	Color,	Number format,	Aggregation,	Total using.	But not include sort (sort is applicable to measures but not dimensions)
@@ -61,6 +64,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - For cube data sources, you canNOT use parameter values to filter dimensions in an MDX calculation.
 # Export
 - Data can be exported to an MS Access DB (Data is the option name ) or Excel.
+- Available image formats when exporting as image:Jpeg, Bmp, Png
 - Export dashboard as image: copy just 1 of the worksheets not the entire dashboard (Right click on the dashboard, choose Copy, then image OR Click on Worksheet in the Menu bar followed by Export, then choose Image)
 - NOT exsist: Using the floating export worksheet option on the Dashboard
 
@@ -70,11 +74,12 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 
 # Metadata (Ex: Which fields are hidden, Default aggregation etc)
 - Use metadata to create custom names for cols
-# View/Story
+# View/ Story / Dashboard 
 - Can view display max 10k rows when click on view data. This  can  be increased
 - Device options available in Device Preview: Default, desktop, Tablet, Phone
 - To add phone view, Select Device Preview, then select Phone for Device Type, then click the button labeled "Add Phone Layout"
 - Stories but NOT dashboards can include multiple versions of same sheet. CanNOT add a dashboard and a worksheet at the same time both to a story point
+- Valid objects when creating dashboard: Text, Image, Extension, Webpage
 # Size/Layout
 - Dashboard size options: Fixed (default), Range, Automatic
 - Valid layout container types: Vertical and Horizontal
@@ -82,11 +87,15 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - Determine LOD: select a mark, right click to view underlying data
 # Aggregration = how data is combined, NOT table calc
 - By default, aggregation is done on row-lvl detail
+- Change default aggregation for a measure: Right click on the measure -> default properties -> aggregation
 - Values are always aggregated at level of granularity of the worksheet
+- Fields used in blends must first be aggregated
+- Disaggregate: break down all records in underlying source to see all of the marks in the view at most detailed level of granularity
 # Blend/Union
-- Blending (done per sheet basis). allows combine data from different data sources (primary data src is blue, secondary is orange). 
-- Blending is established when a field from a second data source is used in the view.
+- Blending (done per sheet basis) allows combine data from different data sources (primary data src is blue, secondary is orange). 
+- Blending (~ LEFT join) is established when a field from a second data source is used in the view.
 - To create blend: Add at least 1 field from the primary data source to sheet/ view. Then, in the Data pane, click the data source that you want to designate as the secondary data source and click the broken link icon.
+- Fields used in blends must first be aggregated
 - Union: combine row wise into single sheet
 # Join/ Relationship
 - join max 32 tables
@@ -103,7 +112,8 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - Proportional brushing can be created with set action
 - A dashboard can have multiple Web page objects.
 - To interactively display info from the web inside a dashboard, you can use a URL action with a web page object
-- url formats allowed with Tableau url action:ftp, http, https
+- url formats allowed with Tableau url action: ftp, http, https
+- go-to-url action = a hyperlink that points to a webpage outside of tableau
 
 # Filter (Slider filter works best with date field)
 - In filter range of values, upper bound is excluded
@@ -111,6 +121,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - To create context filter: Click "More Options" arrow on the worksheet included in the dashboard layout, then	select "use as Filters" and select the filter that you'd like to apply to the whole	dashboard. Then go to the filter menu, right click, and select "apply to all using this data source"
 - CONTEXT filter usage: set a context filter to include only the data of interest, THEN set a (dependent) numerical or a top N filter. CONTEXT filter will mprove performance (If you set a lot of filters or have a large data source, the queries can be slow)
 - Quick filters: Single / multiple value (list, drop-down, slider), Multiple values (custom list) and Wildcard match
+- You get different filtering options when filtering for categorical and quantitative data
 
 # Calculation/ Parameters = [PURPLE] (variables which can be added)
 - Quick table calc can be pane down/across or table down/across
@@ -143,7 +154,8 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - italicize tooltip: Click on tooltip, select text, and use italics option OR Click Format from Menu bar, choose Font, and then edit tooltip option OR Click on worksheet in Menu, select tooltip, then use italic option
 - make row or col bold w/o affecting others: Choose format from Menu bar, select row or column, and select Bold under header option OR Right click row or column, choose format. In font option click on bold
 - format numbers to currency: Right click measure or axis and select Format. Then click Numbers drop-down menu
-
+- Manually assign geo role: Right click the DIMENSION -> geo role -> assign
+- show mark labels in viz: Click on analysis and choose Show Marks labels OR Drag measure to Text in the marks card OR Click on Show Marks label icon in the tool bar at top
 # Animate visualizations in workbook (Animation not supported on IE)
 - Choose Format > Animations. To animate every sheet, under Workbook Default, click On. Then for Duration, choose a preset, or specify a custom duration of up to 10 seconds. For Style, choose Simultaneous to play all animations at once or Sequential to fade out marks, move and sort them, and then fade them in. 
 - To override workbook defaults for a particular sheet, change the settings under Selected Sheet.
