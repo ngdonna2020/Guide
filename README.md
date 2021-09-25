@@ -62,11 +62,13 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 # Cube data source
 - Cube data source can only be used as primary in a blend and supported only for Tableau Desktop on windows
 - For cube data sources, you canNOT use parameter values to filter dimensions in an MDX calculation.
-# Export
+# Export / Share
 - Data can be exported to an MS Access DB (Data is the option name ) or Excel.
 - Available image formats when exporting as image:Jpeg, Bmp, Png
 - Export dashboard as image: copy just 1 of the worksheets not the entire dashboard (Right click on the dashboard, choose Copy, then image OR Click on Worksheet in the Menu bar followed by Export, then choose Image)
-- NOT exsist: Using the floating export worksheet option on the Dashboard
+- NOT exist: Using the floating export worksheet option on the Dashboard
+- Share twbx as PDF: select File > Print to PDF.
+- Share twbx as an image: Select Worksheet > Export> Image. In the Copy Image dialog box, select the contents you want to include in the image and legend layout (if the view contains a legend). Click Save. In the Save Image dialog box, navigate to where you want to save the image file and type a file name into the text box. Select a file format from the Save as type drop-down menu. Click Save.
 
 # Extract & Refresh
 - Extract=saved subsets of data that can improve performance or take advantage of Tableau functionality not available or supported in the original data. When creating extract of your data, you can reduce the total amount of data by using filters and configuring other limits. After you create an extract, you can refresh it with data from the original data.
@@ -148,6 +150,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - Orange-Blue  diverging  palette  is  an  excellent  choice  for  both  colour  blind  and  sound-vision people.
 - When there are both + and – values for a field, the default range of values will use 2 color ranges. This is Diverging Palette
 - Field Names = [ORANGE], Parameters = [PURPLE]
+- Recommended file format when using color to encode shape: PNG, GIF
 # How to...
 - format axis bold: Right click on axis, choose format, and then set to bold
 - bold tooltip: Right click format, and then under default worksheet formatting, choose tooltip and make it bold OR Click on tooltip in the marks card, and then make it bold OR Click on worksheet in menu bar, then tooltip, and then select bold option
