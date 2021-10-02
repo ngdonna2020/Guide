@@ -94,7 +94,7 @@ ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down
 - Fields used in blends must first be aggregated
 - Disaggregate: break down all records in underlying source to see all of the marks in the view at most detailed level of granularity
 # Blend/Union
-- Blending (done per sheet basis) allows combine data from different data sources (primary data src is blue, secondary is orange). 
+- Blending (done per sheet basis) allows combine data from different data sources (primary data src =blue tickmark, secondary is orange). 
 - Blending (~ LEFT join) is established when a field from a second data source is used in the view.
 - To create blend: Add at least 1 field from the primary data source to sheet/ view. Then, in the Data pane, click the data source that you want to designate as the secondary data source and click the broken link icon.
 - Fields used in blends must first be aggregated
