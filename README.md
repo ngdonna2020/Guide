@@ -1,5 +1,6 @@
 # Guide
-ngdonna2020 Tabl SUM([Profit])/SUM([Sales]) Bar site:help.tableau.com Table down (rank chaque col)
+ngdonna2020 Tabl SUM([Profit])/SUM([Sales])  - profit ratio
+Bar site:help.tableau.com Table down (rank chaque col)
 # Field Field Names = [ORANGE]
 - Field, or col, is a single piece of info from a record in a data set
 - If  titles  of  fields /col names changed  in  the  source  data,  we  need  to replace the references as Tableau won’t understand these changes. To fix this, right click on the broken field and click on replace references and tell Tableau which is the new field name.
