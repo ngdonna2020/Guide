@@ -20,6 +20,8 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - When you drop a continuous measure in color, you get a continuous range of colors
 - Countd will make a string into a measure
 - bin can be created on a continuous measure or numeric dimension
+- can use measures in the same view multiple times
+- Tableau displays measures over time as line
 
 # Discrete and Continuous (green)
 - Discrete create label. Continuous create axis
@@ -102,6 +104,7 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - Union: combine row wise into single sheet
 # Join/ Relationship
 - join max 32 tables
+- Join: connect to multiple tables in a single data source at once
 - 1-to-many relationship is represented by a *
 # Group / Set
 - group  dim or measur: In Data pane menu, click  group  by  folder. Then right click and create group. Drag-drop relevant dim or measures into the group.
