@@ -135,11 +135,11 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - SIZE() returns number of rows in the partition
 - Zn function helps replace missing values. only works for numeric fields and changes Null to 0
 
-# Chart/Bin
+# Chart/ Bin
 - Combined axis charts are useful when I want  to  see  multiple  measures  for 1 dimension. (If  i  want  to  see  a  columns  discount,  sales  etc  I  just  have  to  drag  and drop the extra measures to the y axis until a double green bar appears). possible to blend axes for multiple measures into a single 1
 - Pie chart should be 2-5 dim. if not, use treemap (note: these dont have axis)
 - Tree chart can be changed to a text cloud or bubble chart by just changing the shape of marks
-- Histogram shows the distribution of continuous data by creating bins that are discrete (bin can be created on a continuous measu or numeric dim). Histogram must include a bin and a count and requires a minimum of 1 measure to be created
+- Histogram shows the distribution of continuous data by creating bins that are discrete (bin can be created on a continuous measu or numeric dimension). Histogram must include a bin and a count and requires a minimum of 1 measure to be created
 - A line chart requires a date field. Reference line can only be added to a continuous axis IN THE VIEW
 - Bar chart: if we group labels in a view, a new mark (bar) is created, which consolidates all members of the group. A bar chart can be used a floating item. To create a stacked bar chart from existing bar chart, drag another dimension into Color mark
 - Heatmap default shape = square
