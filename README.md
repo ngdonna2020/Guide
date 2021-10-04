@@ -111,7 +111,7 @@ Bar site:help.tableau.com Table down (rank chaque col)
 
 # Action/ Web Page Object
 - 3  types  of  dashboard  actions - select, hover and menu. Hover is best for highlighting, select for filtering. Menu action is added to the tooltip and user can decide whether to run that action or not (best for URL actions)
-- Highlighting action can be disabled for entire workbook
+- Highlighting action can be disabled/enabled for entire workbook or sheets from the toolbar
 - To create dashboard action:	Click "More Options" arrow on the Worksheet included in the dashboard layout, then select Actions (Ctrl+Shift+A)
 - Proportional brushing can be created with set action
 - A dashboard can have multiple Web page objects.
