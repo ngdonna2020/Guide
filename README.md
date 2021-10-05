@@ -6,7 +6,7 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - If  titles  of  fields /col names changed  in  the  source  data,  we  need  to replace the references as Tableau won’t understand these changes. To fix this, right click on the broken field and click on replace references and tell Tableau which is the new field name.
 - Remote field name is the original name of the column, field name is the custom name created in tableau
 - To concatenate fields, they must be of same data type
-
+- FALSE: Trend line can only be used with numeric or date field
 # Role and Type
 - Data fields are automatically assigned a role (Dim/ independent var or Measure/ dependent var) and a type (string, number, geo, date, date & time, boolean)
 - Geo region type is also String
@@ -56,15 +56,18 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - TWBX is all  in 1.  Single zip file contains workbook, viz,  info needed to  build the  viz, and a copy of the data source. It doesn’t contain extracts of the data but can contain both live and data extracts. Best if want to eliminate the barrier of data access/sharing your work with ppl who don’t have access to the original data.
 - TDE is a snapshot of the data that Tableau stores locally (local copy of a subset or entire data set that you can use to share data with ppl/ need to work offline, performance is optimised because it queries its own database engine instead of the local data source) Good for very large datasets of which we only need few fields.  
 - .hyper: Create larger extracts with billions of rows of data. Because .hyper extracts can support more data, you can consolidate .tde extracts into a single .hyper extract. Create and refresh extracts faster, version 2020.3 supports faster extract creation and refreshes for even larger data sets. Experience better performance when interacting with views that use extract data sources: Although smaller extracts continue to perform efficiently, larger extracts perform more efficiently.
-# Data source (Google firebase is not valid server-lvl data source) / Tableau Reader/ Publish
+# Data source (Google firebase is not valid server-lvl data source) 
 - can add filter in Data Source window to filter data (Data Source filter)
 - can  either  embed  data  source  in  the workbook for others to use, or publish it separately. Include external files means that there are things like custom geo encoding that the server wont have access to and would want to include those.
 - save new data source as .tds :go to data menu on top. choose current connected data source. Then click on Add to Saved Data sources. This will save all calculated fields, changes to fields ... It  will  be  saved  in  My  Tableau  Repository  ->  Mydatasources and also appear on Tableau Home Page under saved data sources like SampleSuperStore.
-- can publish viz to tableau online (hosted by Tableau) or server (hosted by our organisation). Tableau public is free, good for making public viz that contain non sensitive data. Before we can publish on Tableau online, we need to be invited by admin and create username and password. The URL for tableau online is http://online.tableau.com
-- Tableau reader is free  and less powerful version of Desktop with limited viewing capabilities.  Doesn’t have full editing features  -  can  sort etc only basic things.  Can open .twbx files and view the vizzes.
 # Cube data source
 - Cube data source can only be used as primary in a blend and supported only for Tableau Desktop on windows
 - For cube data sources, you canNOT use parameter values to filter dimensions in an MDX calculation.
+# Tableau Server Reader/ Publish
+- can publish viz to tableau online (hosted by Tableau) or server (hosted by our organisation). Tableau public is free, good for making public viz that contain non sensitive data. Before we can publish on Tableau online, we need to be invited by admin and create username and password. The URL for tableau online is http://online.tableau.com
+- Tableau reader is free  and less powerful version of Desktop with limited viewing capabilities.  Doesn’t have full editing features  -  can  sort etc only basic things.  Can open .twbx files and view the vizzes.
+- min 32GB RAM recommended for any production use of Tableau Server
+
 # Export / Share
 - Data can be exported to an MS Access DB (Data is the option name ) or Excel.
 - Available image formats when exporting as image:Jpeg, Bmp, Png
@@ -130,7 +133,7 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - Quick filters: Single / multiple value (list, drop-down, slider), Multiple values (custom list) and Wildcard match
 - You get different filtering options when filtering for categorical and quantitative data
 
-# Calculation/ Parameters = [PURPLE] (variables which can be added)
+# Calculation/ Parameters = [PURPLE] (variables that can be added)
 - Quick table calc can be pane down/across or table down/across
 - Param = global placeholder value such as number, date, or string that can replace a constant value in a calculation, filter, or reference line.
 
@@ -139,12 +142,13 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - SIZE() returns number of rows in the partition
 - Zn function helps replace missing values. only works for numeric fields and changes Null to 0
 
-# Chart/ Bin
+# Chart/ Bin / Trend line
 - Combined axis charts are useful when I want  to  see  multiple  measures  for 1 dimension. (If  i  want  to  see  a  columns  discount,  sales  etc  I  just  have  to  drag  and drop the extra measures to the y axis until a double green bar appears). possible to blend axes for multiple measures into a single 1
 - Pie chart should be 2-5 dim. if not, use treemap (note: these dont have axis)
 - Tree chart can be changed to a text cloud or bubble chart by just changing the shape of marks
 - Histogram shows the distribution of continuous data by creating bins that are discrete (bin can be created on a continuous measu or numeric dimension). Histogram must include a bin and a count and requires a minimum of 1 measure to be created
 - A line chart requires a date field. Reference line can only be added to a continuous axis IN THE VIEW
+- FALSE: Trend line can only be used with numeric or date field
 - Bar chart: if we group labels in a view, a new mark (bar) is created, which consolidates all members of the group. A bar chart can be used a floating item. To create a stacked bar chart from existing bar chart, drag another dimension into Color mark
 - Heatmap default shape = square
 # Color (max 7 in visualization/ view) and Font
