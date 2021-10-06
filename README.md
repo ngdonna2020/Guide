@@ -147,6 +147,7 @@ Bar site:help.tableau.com Table down (rank chaque col)
 - Pie chart should be 2-5 dim. if not, use treemap (note: these dont have axis)
 - Tree chart can be changed to a text cloud or bubble chart by just changing the shape of marks
 - Histogram shows the distribution of continuous data by creating bins that are discrete (bin can be created on a continuous measu or numeric dimension). Histogram must include a bin and a count and requires a minimum of 1 measure to be created
+- To create variable size bins use calculated field
 - A line chart requires a date field. Reference line can only be added to a continuous axis IN THE VIEW
 - FALSE: Trend line can only be used with numeric or date field
 - Bar chart: if we group labels in a view, a new mark (bar) is created, which consolidates all members of the group. A bar chart can be used a floating item. To create a stacked bar chart from existing bar chart, drag another dimension into Color mark
